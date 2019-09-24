@@ -76,7 +76,8 @@ fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double =
  * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
  * Вывести значение того же угла в радианах (например, 0.63256).
  */
-fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
+fun angleInRadian(deg: Int, min: Int, sec: Int): Double =
+        (deg + (min + sec.toDouble() / 60).toDouble() / 60).toDouble() * kotlin.math.PI / 180
 
 /**
  * Тривиальная
@@ -84,7 +85,8 @@ fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
  * Найти длину отрезка, соединяющего точки на плоскости с координатами (x1, y1) и (x2, y2).
  * Например, расстояние между (3, 0) и (0, 4) равно 5
  */
-fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double = TODO()
+fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double =
+        sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1))
 
 /**
  * Простая
@@ -112,7 +114,7 @@ fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minute
  * Например, 100 рублей под 10% годовых превратятся в 133.1 рубля
  */
 fun accountInThreeYears(initial: Int, percent: Int): Double =
-        (0 + (0 + (0 + initial * (percent % 100)) * (percent % 100)) * (percent % 100)).toDouble()
+        (initial * (1 + percent.toDouble() / 100) * (1 + percent.toDouble() / 100) * (1 + percent.toDouble() / 100)).toDouble()
 /**
  * Простая
  *
